@@ -3,13 +3,13 @@ import numpy as np
 import tensorflow as tf
 
 # ====== Load Model and Classes ======
-MODEL_PATH = "augmented_cnn_model.keras"   # retrained model
+MODEL_PATH = "augmented_cnn_model.keras"   
 CLASS_PATH = "class_names.npy"
 
 print("🔹 Loading model...")
 model = tf.keras.models.load_model(MODEL_PATH)
 class_names = np.load(CLASS_PATH)
-print(f"✅ Model loaded successfully. Classes: {class_names}")
+print(f" Model loaded successfully. Classes: {class_names}")
 
 # ====== Webcam Setup ======
 cap = cv2.VideoCapture(0)
@@ -23,7 +23,7 @@ while True:
     # Flip for natural mirror view
     frame = cv2.flip(frame, 1)
 
-    # Draw a guide box (where to place hand)
+    # Draw a guide box 
     h, w, _ = frame.shape
     box_size = 250
     x1, y1 = (w - box_size)//2, (h - box_size)//2
@@ -46,7 +46,7 @@ while True:
     cv2.putText(frame, label, (x1, y1 - 15),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
-    cv2.imshow("🖐 Hand Sign Detection", frame)
+    cv2.imshow(" Hand Sign Detection", frame)
 
     # Quit with 'q'
     if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -54,3 +54,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+
