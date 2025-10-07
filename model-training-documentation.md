@@ -211,7 +211,7 @@ history = model.fit(
 ### 8. Saving Class Names
 ```python
 np.save("class_names.npy", class_names)
-print("\n✅ Training complete. Model and class names saved successfully!")
+print("\n Training complete. Model and class names saved successfully!")
 ```
 - Saves class names as a NumPy array file
 - Essential for making predictions later (maps indices back to class names)
